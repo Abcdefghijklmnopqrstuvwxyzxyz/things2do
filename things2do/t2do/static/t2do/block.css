@@ -1,0 +1,81 @@
+/*block.css: Define css for block on the dashboard*/
+
+.t2do-block {
+	background-color: #C03;
+	width: 300px;
+	display: inline-block;
+	transition: 0.6s;
+	-webkit-transition: 0.6s;
+	-moz-transition: 0.6s;
+	-o-transition: 0.6s;
+}
+
+.t2do-block:hover {
+	background-color: #C06;
+}
+
+.t2do-block > .container {
+	padding: 5px 20px 10px 15px;
+	width: 100%;
+}
+
+.t2do-block h1 {
+	font-size: 1.7em;
+}
+
+.t2do-block  i {
+	color: #DDD;
+	font-size: .7em;
+}
+
+.t2do-block .left {
+	font-size: 1.3em;
+}
+
+.t2do-block > .block-toolbar {
+	display: inline-block;
+	position-bottom: 0px;
+	width: 100%;
+	height: 60px;
+	background-color: rgba(255,255,255,0.6);
+	opacity: 0;
+	transition: .5s;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-o-transiton: .5s;
+	padding: 5px;
+}
+.block-toolbar:hover {
+	opacity: 1;
+}
+
+.block-toolbar > .t2do-toolbtn {
+	border-radius: 3px;
+	height: 50px;
+	width: 40px;
+	display: block;
+	padding: 1px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.t2do-toolbtn {
+	transition: .3s;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	-moz-transition: .3s;
+	display:inline-block;
+}
+
+.t2do-toolbtn > span {
+	font-size: 20px;
+}
+
+.toolbtn-title {
+	font-size: 10px;
+}
+
+.t2do-toolbtn:hover {
+	background-color: rgba(51,0,153, 0.6);
+	color: #CCC;
+}

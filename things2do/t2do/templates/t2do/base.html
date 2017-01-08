@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html>
+	<head>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+		<!-- Bootstrap Theme (Not needed in usual) -->
+		<!-- <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css"> -->
+
+		<!-- Bass css -->
+		<link href="{%static 't2do/base.css'%}" rel="stylesheet" type="text/css"/>
+
+		{% block title%}<title>Things2Do</title>{% endblock %}
+		{% block link%}{%endblock%}
+	</head>
+	<body>
+		{%block container%}
+		<div class="container">
+			<div class="navbar navbar-default nav navbar-fixed-top"><nav>{%block nav%}
+				<h2 class="col-sm-4">{% if title is not None %}{{title}}{%else%}Things2Do{%endif%}</h2>
+				{% if user.is_authenticated %}
+				<div class="navbar-right" style="font-color: white;">
+					<p class="navbar-text">
+						Hello, {{user.username | upper}}.&nbsp;&nbsp;
+						<a href="add/" class="t2do-btn btn btn-lg"><span class="glyphicon glyphicon-plus"></span></a>
+						<a href="settings/" class="btn btn-lg t2do-btn" target="_blank"><span class="glyphicon glyphicon-cog"></span></a>
+						<a href="/logout" class="btn btn-lg t2do-btn" alt="Logout"><span class="glyphicon glyphicon-off"></span></a>
+					</p>
+				</div>
+				{% endif %}
+				{%endblock%}</nav></div>
+			<main>
+				{%if error%}
+					<h1 class="text-center">{{ error }}</h1>
+				{%else%}
+				{%block content%}{%endblock%}
+				{%endif%}
+			</main>
+			<footer class="text-center footer">
+				{%block footer%}
+				<a href='about/'>About us</a>
+				<a href="about/">Contact</a>
+				<a href="http://glyphicons.com/">Glyphicons</a>
+				{%endblock%}
+			</footer>
+		</div>
+		{%endblock%}
+	</body>
+</html>

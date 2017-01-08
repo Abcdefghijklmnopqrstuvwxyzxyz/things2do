@@ -1,0 +1,49 @@
+{%extends 't2do/base.html'%}
+{%load static%}
+{%block link%}
+<link href="{%static 't2do/dashboard.css'%}" rel="stylesheet" type="text/css"/>
+<link href="{%static 't2do/block.css'%}" rel="stylesheet" type="text/css"/>
+{%endblock%}
+{%block content%}
+<section id="deadline-coming">
+	<h2>DEADLINE COMING</h2>
+	<!-- Plan Blocks -->
+	{%include 't2do/block.html'%}
+</section>
+<section>
+	<h2>DASHBOARD</h2>
+	<p><i>No Apps yet, have a look in our <a href="/app/public" target="_blank">public apps</a>.</i></p>
+	<div class="app"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=380 height=369 src="http://music.163.com/outchain/player?type=0&id=492299725&auto=0&height=430"></iframe></div>
+</section>
+<section>
+	<h2>ALL PLANS</h2>
+	<div class="panel panel-default" style="display:none">
+		<canvas id="planmap" style="background: gray;"></canvas>
+	</div>
+	<div>
+		<table class="table table-hover">
+			<thead>
+				<tr><td>#</td><td>NAME</td><td>DEADLINE</td><td>OPERATIONS</td></tr>
+			</thead>
+			<tbody>
+				{% for plan in plans %}
+				{% if plan.is_deadline_comming %}
+				<tr class="danger">
+				{%else%}
+				<tr>
+				{%endif%}
+					<td>{{forloop.counter}}</td>
+					<td>{{plan.name}}</td>
+					<td>{{plan.end_time}}</td>
+					<td><a class="btn t2do-btn" href="edit?id=1"><span class="glyphicon glyphicon-edit"></span></a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="plan-nav">
+		{% if page > 0 %}<a href="/account/?page={{page}}" class="disabled-link">&lt;Pre</a>{%endif%}
+		<a href="/account/?page={{next}}" class="disabled-link">Next&gt;</a>
+	</div>
+</section>
+{%endblock%}

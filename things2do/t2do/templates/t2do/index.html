@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+	<title>Login - Things2Do</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+	<!--Site CSS -->
+	<link href="{%static 't2do/base.css'%}" rel="stylesheet" type="text/css"/>
+	<link href="{%static 't2do/login.css'%}" rel="stylesheet" type="text/css"/>
+
+	<!--Site Javascript -->
+	<script src="{%static 't2do/base.js'%}"></script>
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<!-- Jumbotron-->
+		<h1>The best way to manage your plan.</h1>
+		<a href="/account/new/" class="btn btn-primary">Sign Up</a>
+	</div>
+	<div class="container">
+		<!-- container -->
+		<div class="navbar navbar-default nav navbar-fixed-top"><nav><h2 class="col-sm-4">Sign In</h2></nav></div>
+		<main>
+			<div class="panel panel-default text-center">
+				<!-- Login Panel -->
+				<div id="login-heading" class="panel-heading text-center"><h1 class=" login-title panel-title">Sign In Now</h1></div>
+				<div class="form text-center">
+					<form action="/login/" method="post">
+						{% csrf_token %}
+						<div class="form-group text-center">
+							<input id="username" class="form-control" name="user" placeholder="Username" required/>
+						</div>
+						<div class="form-group text-center">
+							<input id="password" class="form-control" name="pass" placeholder="Password" type="password" required/>
+						</div>
+						<div id="form-submit" class="row">
+							<button type="submit" class="login-btn btn btn-success">Log in</button>
+							<div class="login-btn btn btn-primary">Sign Up</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
+		<footer class="text-center footer">
+			<a href='about/'>About us</a>
+			<a href="about/">Contact</a>
+		</footer>

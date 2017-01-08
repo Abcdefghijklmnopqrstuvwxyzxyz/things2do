@@ -1,0 +1,19 @@
+#input {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#username, #password {
+	width:80%;
+	margin: auto;
+}
+
+.login-btn {
+	width: 125px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.login-title {
+	font-size: 1.5em;
+}
