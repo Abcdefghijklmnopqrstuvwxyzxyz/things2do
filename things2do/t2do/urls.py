@@ -8,6 +8,7 @@ account_urls = [
 	url(r'^add/$', views.add_plan),
 	url(r'^settings/$', views.user_setting),
 	url(r'^save$', views.submit_plan),
+	url(r'^c', views.done)
 ]
 
 api_urls = []

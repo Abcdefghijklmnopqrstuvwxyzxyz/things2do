@@ -110,3 +110,15 @@ def submit_plan(request):
 		current.save();
 		return HttpResponseRedirect('/account/');
 
+@login_required(login_url='/')
+def done(request):
+	try:
+		id = request.GET['id']
+	except KeyError:
+		return render('t2do/base.html', {'error': '400 Bad request'}, status = 400);
+	current = get_object_or_404(Plan, pk=id)
+	if current.user != request.user:
+		return render('t2do/base.html', {'error': '403 Forbidden'}, status = 403);
+	current.is_complete = True;
+	current.save();
+	return HttpResponseRedirect('/account/');
